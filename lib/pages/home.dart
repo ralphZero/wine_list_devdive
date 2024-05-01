@@ -37,18 +37,28 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text(
           'Wine Collection',
-          style: TextStyle(fontFamily: 'italiana', fontSize: 24),
+          style: TextStyle(
+            fontFamily: 'Italiana',
+            fontSize: 24,
+            color: Colors.white,
+          ),
         ),
+        leading: Image.asset(
+          'assets/wine.png',
+          width: 24,
+        ),
+        titleSpacing: 0.4,
         centerTitle: false,
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: [
-          const WineBanner(),
           Expanded(
             child: ListView(
               children: wineDataList.map((wine) {
                 var isFavorite = favoriteWineList
                     .any((wineItem) => wineItem['id'] == wine['id']);
+
                 return WineItem(
                   wineData: wine,
                   isFavorite: isFavorite,

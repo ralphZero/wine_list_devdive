@@ -15,7 +15,7 @@ class WineItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(16),
       width: double.infinity,
       color: Colors.grey[200],
@@ -24,8 +24,6 @@ class WineItem extends StatelessWidget {
           Image.network(
             wineData['image'],
             height: 92,
-            alignment: AlignmentDirectional.center,
-            fit: BoxFit.cover,
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -35,8 +33,8 @@ class WineItem extends StatelessWidget {
                 Text(
                   wineData['winery'],
                   style: const TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'italiana',
+                    fontSize: 18,
+                    fontFamily: 'Italiana',
                   ),
                 ),
                 Text(
@@ -49,9 +47,9 @@ class WineItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '\$40',
-                      style: TextStyle(
+                    Text(
+                      '\$${wineData['price']}',
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
